@@ -1,10 +1,10 @@
 window.my = {};
-/*·â×°Ò»¸öÊÂ¼ş ¹ı¶É½áÊøÊÂ¼ş*/
+/*å°è£…ä¸€ä¸ªäº‹ä»¶ è¿‡æ¸¡ç»“æŸäº‹ä»¶*/
 my.transitionEnd = function(dom,callback){
-    //1.¸øË­¼ÓÊÂ¼ş
-    //2.ÊÂ¼ş´¥·¢ºó´¦ÀíÊ²Ã´ÒµÎñ
+    //1.ç»™è°åŠ äº‹ä»¶
+    //2.äº‹ä»¶è§¦å‘åå¤„ç†ä»€ä¹ˆä¸šåŠ¡
     if(!dom || typeof dom != 'object'){
-        //Ã»domµÄÊ±ºò»òÕß²»ÊÇÒ»¸ö¶ÔÏóµÄÊ±ºò ³ÌĞòÍ£Ö¹
+        //æ²¡domçš„æ—¶å€™æˆ–è€…ä¸æ˜¯ä¸€ä¸ªå¯¹è±¡çš„æ—¶å€™ ç¨‹åºåœæ­¢
         return false;
     }
     dom.addEventListener('transitionEnd', function(){
@@ -15,33 +15,33 @@ my.transitionEnd = function(dom,callback){
     });
 }
 
-//·â×°Ò»¸ötapÊÂ¼ş
+//å°è£…ä¸€ä¸ªtapäº‹ä»¶
 my.tap = function(dom,callback){
     if(!dom || typeof dom != 'object'){
-        //Ã»domµÄÊ±ºò»òÕß²»ÊÇÒ»¸ö¶ÔÏóµÄÊ±ºò ³ÌĞòÍ£Ö¹
+        //æ²¡domçš„æ—¶å€™æˆ–è€…ä¸æ˜¯ä¸€ä¸ªå¯¹è±¡çš„æ—¶å€™ ç¨‹åºåœæ­¢
         return false;
     }
 
-    var isMove = false; //ÊÇ·ñ»¬¶¯¹ı
-    var time = 0;   //¸Õ¸Õ´¥ÃşÆÁÄ»µÄÊÂ¼ş  touchstartµÄ´¥·¢ÊÂ¼ş
+    var isMove = false; //æ˜¯å¦æ»‘åŠ¨è¿‡
+    var time = 0;   //åˆšåˆšè§¦æ‘¸å±å¹•çš„äº‹ä»¶  touchstartçš„è§¦å‘äº‹ä»¶
 
     dom.addEventListener('touchstart',function(){
-        //¼ÇÂ¼´¥·¢Õâ¸öÊÂ¼şµÄÊ±¼ä
-        time = Date.now();  //Ê±¼ä´Á ºÁÃë
+        //è®°å½•è§¦å‘è¿™ä¸ªäº‹ä»¶çš„æ—¶é—´
+        time = Date.now();  //æ—¶é—´æˆ³ æ¯«ç§’
     });
     dom.addEventListener('touchmove',function(){
         isMove = true;
     });
     window.addEventListener('touchend',function(e){
-        //1.Ã»ÓĞ»¬¶¯¹ı
-        //2.ÏìÓ¦ÊÂ¼şÔÚ150msÒÔÄÚ   ÒªÇó±ÈclickÒªÏìÓ¦¿ì
+        //1.æ²¡æœ‰æ»‘åŠ¨è¿‡
+        //2.å“åº”äº‹ä»¶åœ¨150msä»¥å†…   è¦æ±‚æ¯”clickè¦å“åº”å¿«
         if(!isMove && (Date.now()-time)<150 ){
             callback && callback(e);
         }
 
-        //ÖØÖÃ²ÎÊı
+        //é‡ç½®å‚æ•°
         isMove = false;
         time = 0;
-    });
+    })
 
 }
