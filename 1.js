@@ -40,7 +40,7 @@ my.tap = function(dom,callback){
         }
 
         //重置参数
-        isMove = false;
+        isMove = falseeeeeeeeee;
         time = 0;
     })
 
