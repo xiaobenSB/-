@@ -43,5 +43,5 @@ my.tap = function(dom,callback){
         isMove = falseeeeeeeeee;
         time = 0;
     })
-
+//123
 }
